@@ -8,6 +8,7 @@ package com.mycompany.practicaevaluada_1;
  *
  * @author zid
  */
+
 public class Planeta extends CuerpoCeleste implements IPlaneta {
-    
+
 }
