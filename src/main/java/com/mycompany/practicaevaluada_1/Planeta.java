@@ -9,5 +9,5 @@ package com.mycompany.practicaevaluada_1;
  * @author zid
  */
 public interface Planeta {
-    
+    public int duracionOrbita=0;
 }
