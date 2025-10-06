@@ -121,6 +121,18 @@ public class CuerpoCeleste {
     public void setOrbit(orbitType orbit) {
         this.orbit = orbit;
     }
+
+    @Override
+    public String toString() {
+        return  "=== Información del Planeta ==="
+                + "\nNombre: " + getName()
+                + "\nMasa: " + getMass() + " kg"
+                + "\nVelocidad orbital: " + getOrbitalvelocity() + " m/s"
+                + "\nÓrbita ligada: " + (isBoundOrbit() ? "Sí" : "No")
+                + "\nRotación por día: " + getRotationPerDay() + " h"
+                + "\nRadio del objeto: " + getObjectRadius() + " m"
+                + "\nTipo de órbita: " + getOrbit();
+    }
     
     
 }
