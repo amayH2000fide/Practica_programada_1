@@ -4,7 +4,7 @@ package com.mycompany.practicaevaluada_1;
  *
  * @author zid
  */
-public class PlanetaGaseoso extends Planeta {
+public abstract class PlanetaGaseoso extends Planeta {
 
     private boolean tieneAnillos;
     private String composicionAtmosferica;
@@ -40,10 +40,12 @@ public class PlanetaGaseoso extends Planeta {
         this.composicionAtmosferica = composicionAtmosferica;
     }
 
-    @Override
+     @Override
+
+
     public double timeToSunCalculus() {
-      double T = (2 * Math.PI * getDistancetoSun()) / supergetOrbitalvelocity();
-        return T * 1.1; 
+        double T = (2 * Math.PI * getDistancetoSun()) / getOrbitalvelocity();
+        return T * 1.1; // se ajusta un poco para representar su órbita más lenta
     }
 
     @Override
