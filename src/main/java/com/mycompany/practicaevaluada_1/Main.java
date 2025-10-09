@@ -39,7 +39,7 @@ public class Main {
             
             if(tipo == -1) return; 
             
-            planetas [cantidadPlanetas - 1] = CreacionMenu(tipo);
+            planetas [cantidadPlanetas] = CreacionMenu(tipo);
             
             cantidadPlanetas++;
             

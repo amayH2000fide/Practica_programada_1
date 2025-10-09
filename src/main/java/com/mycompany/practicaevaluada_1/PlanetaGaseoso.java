@@ -39,19 +39,18 @@ public class PlanetaGaseoso extends Planeta {
     public void setatmosphericComposition(String atmosphericComposition) {
         this.atmosphericComposition = atmosphericComposition;
     }
-    
+
     //Calculo distinto para los planetas gaseosos
     @Override
     public double timeToSunCalculus() {
         double T = (2 * Math.PI * getDistancetoSun()) / getOrbitalvelocity();
         return T * 1.1; // se ajusta un poco para representar su órbita más lenta
     }
-    
+
     //To string con super para mostrar la información
     @Override
     public String toString() {
-        return "\n=== Planeta Gaseoso ==="
-                + super.toString()
+        return super.toString()
                 + "\nTiene anillos: " + (hasRings ? "Sí" : "No")
                 + "\nComposición atmosférica: " + atmosphericComposition;
     }
