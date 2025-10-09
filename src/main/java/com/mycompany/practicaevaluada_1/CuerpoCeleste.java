@@ -1,56 +1,138 @@
 package com.mycompany.practicaevaluada_1;
 
-/**
- *
- * @author zid
- */
-public class PlanetaGaseoso extends Planeta {
+public class CuerpoCeleste {
+    
+    //constantes
+    public static final double solarMass = 1.989e30;
+    public static final double earthMass = 5.972e24;
+    public static final double jupiterMass = 1.898e27;
+    public static final double G = 6.67430e-11; //constante gravitacional 
+    
+    //tipos de orbita
+    public enum orbitType {
+        elliptical, 
+        circular,
+        hyperbolic,
+        parabolic
+    }
+    
+    //variables
+    private String name; 
+    private double mass;  //kg
+    private double orbitalvelocity; // m/s 
+    private boolean boundOrbit; //si orbita un objeto o esta libre
+    private double rotationPerDay;
+    private double objectRadius; //radio del objeto.
+    private orbitType orbit; 
 
-    private boolean tieneAnillos;
-    private String composicionAtmosferica;
-
-    public PlanetaGaseoso() {
-        super();
+    public CuerpoCeleste() {
+        
     }
 
-    public PlanetaGaseoso(String name, double mass, double orbitalvelocity, boolean boundOrbit,
-            double rotationPerDay, double objectRadius, orbitType orbit,
-            double distanceToSun, int numberOfMoons, double size,
-            boolean tieneAnillos, String composicionAtmosferica) {
-
-        super(name, mass, orbitalvelocity, boundOrbit, rotationPerDay, objectRadius, orbit,
-                distanceToSun, numberOfMoons, size);
-        this.tieneAnillos = tieneAnillos;
-        this.composicionAtmosferica = composicionAtmosferica;
+    public CuerpoCeleste(String name, double mass, double orbitalvelocity, boolean boundOrbit, double rotationPerDay, double objectRadius, orbitType orbit) {
+        this.name = name;
+        this.mass = mass;
+        this.orbitalvelocity = orbitalvelocity;
+        this.boundOrbit = boundOrbit;
+        this.rotationPerDay = rotationPerDay;
+        this.objectRadius = objectRadius;
+        this.orbit = orbit;
+    }
+    
+    //g como acceleracion gravitacional
+    public double CalculateG(){
+        double g = 0;
+        g = (G * mass)/Math.pow(objectRadius, 2);
+        return g;
+    };
+    
+    public double CalculateEarthMass(){
+        double result = 0; 
+        result = mass / earthMass;
+        return result;
+    }
+    
+    public double CalculateSolarMass(){
+        double result = 0;
+        result = mass / solarMass;
+        return result; 
+    }
+    
+    public double CalculateJupiterMass(){
+        double result = 0;
+        result = mass / jupiterMass;
+        return result;
+    }
+    
+    //getters
+    public String getName() {
+        return name;
     }
 
-    public boolean isTieneAnillos() {
-        return tieneAnillos;
+    public double getMass() {
+        return mass;
     }
 
-    public void setTieneAnillos(boolean tieneAnillos) {
-        this.tieneAnillos = tieneAnillos;
+    public double getOrbitalvelocity() {
+        return orbitalvelocity;
     }
 
-    public String getComposicionAtmosferica() {
-        return composicionAtmosferica;
+    public boolean isBoundOrbit() {
+        return boundOrbit;
     }
 
-    public void setComposicionAtmosferica(String composicionAtmosferica) {
-        this.composicionAtmosferica = composicionAtmosferica;
+    public double getRotationPerDay() {
+        return rotationPerDay;
     }
 
-    @Override
-    public double timeToSunCalculus() {
-        double T = (2 * Math.PI * getDistancetoSun()) / getOrbitalvelocity();
-        return T * 1.1; // se ajusta un poco para representar su órbita más lenta
+    public double getObjectRadius() {
+        return objectRadius;
+    }
+
+    public orbitType getOrbit() {
+        return orbit;
+    }
+
+    // setters
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setMass(double mass) {
+        this.mass = mass;
+    }
+
+    public void setOrbitalvelocity(double orbitalvelocity) {
+        this.orbitalvelocity = orbitalvelocity;
+    }
+
+    public void setBoundOrbit(boolean boundOrbit) {
+        this.boundOrbit = boundOrbit;
+    }
+
+    public void setRotationPerDay(double rotationPerDay) {
+        this.rotationPerDay = rotationPerDay;
+    }
+
+    public void setObjectRadius(double objectRadius) {
+        this.objectRadius = objectRadius;
+    }
+
+    public void setOrbit(orbitType orbit) {
+        this.orbit = orbit;
     }
 
     @Override
     public String toString() {
-        return "\n=== Planeta Gaseoso ==="
-                + super.toString()
-                + "\nTiene anillos: " + (tieneAnillos ? "Sí" : "No")
-                + "\nComposición atmosférica: " + composicionAtmosferica;
+        return  "=== Información del Planeta ==="
+                + "\nNombre: " + getName()
+                + "\nMasa: " + getMass() + " kg"
+                + "\nVelocidad orbital: " + getOrbitalvelocity() + " m/s"
+                + "\nÓrbita ligada: " + (isBoundOrbit() ? "Sí" : "No")
+                + "\nRotación por día: " + getRotationPerDay() + " h"
+                + "\nRadio del objeto: " + getObjectRadius() + " m"
+                + "\nTipo de órbita: " + getOrbit();
     }
+    
+    
 }
