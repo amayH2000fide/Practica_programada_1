@@ -1,6 +1,6 @@
 package com.mycompany.practicaevaluada_1;
 
-public class CuerpoCeleste {
+public abstract class CuerpoCeleste {
     
     //constantes
     public static final double solarMass = 1.989e30;
@@ -8,28 +8,22 @@ public class CuerpoCeleste {
     public static final double jupiterMass = 1.898e27;
     public static final double G = 6.67430e-11; //constante gravitacional 
     
-    //tipos de orbita
-    public enum orbitType {
-        elliptical, 
-        circular,
-        hyperbolic,
-        parabolic
-    }
     
     //variables
     private String name; 
     private double mass;  //kg
     private double orbitalvelocity; // m/s 
     private boolean boundOrbit; //si orbita un objeto o esta libre
-    private double rotationPerDay;
+    private double rotationPerDay; //rotacines comparadas a un dia de la tierra.
     private double objectRadius; //radio del objeto.
-    private orbitType orbit; 
+    private OrbitType orbit; 
 
     public CuerpoCeleste() {
         
     }
 
-    public CuerpoCeleste(String name, double mass, double orbitalvelocity, boolean boundOrbit, double rotationPerDay, double objectRadius, orbitType orbit) {
+    public CuerpoCeleste(String name, double mass, double orbitalvelocity, boolean boundOrbit, double rotationPerDay,
+            double objectRadius, OrbitType orbit) {
         this.name = name;
         this.mass = mass;
         this.orbitalvelocity = orbitalvelocity;
@@ -45,19 +39,19 @@ public class CuerpoCeleste {
         g = (G * mass)/Math.pow(objectRadius, 2);
         return g;
     };
-    
+    //Calculo de masa de la tierra
     public double CalculateEarthMass(){
         double result = 0; 
         result = mass / earthMass;
         return result;
     }
-    
+    //calculo de la masa solar
     public double CalculateSolarMass(){
         double result = 0;
         result = mass / solarMass;
         return result; 
     }
-    
+    //Calculo de la masa de jupiter
     public double CalculateJupiterMass(){
         double result = 0;
         result = mass / jupiterMass;
@@ -88,8 +82,7 @@ public class CuerpoCeleste {
     public double getObjectRadius() {
         return objectRadius;
     }
-
-    public orbitType getOrbit() {
+    public OrbitType getOrbit() {
         return orbit;
     }
 
@@ -118,10 +111,11 @@ public class CuerpoCeleste {
         this.objectRadius = objectRadius;
     }
 
-    public void setOrbit(orbitType orbit) {
+    public void setOrbit(OrbitType orbit) {
         this.orbit = orbit;
     }
-
+    
+    //To string para mostrar la información 
     @Override
     public String toString() {
         return  "=== Información del Planeta ==="
@@ -129,7 +123,7 @@ public class CuerpoCeleste {
                 + "\nMasa: " + getMass() + " kg"
                 + "\nVelocidad orbital: " + getOrbitalvelocity() + " m/s"
                 + "\nÓrbita ligada: " + (isBoundOrbit() ? "Sí" : "No")
-                + "\nRotación por día: " + getRotationPerDay() + " h"
+                + "\nRotación por día: " + getRotationPerDay() + " /24h"
                 + "\nRadio del objeto: " + getObjectRadius() + " m"
                 + "\nTipo de órbita: " + getOrbit();
     }

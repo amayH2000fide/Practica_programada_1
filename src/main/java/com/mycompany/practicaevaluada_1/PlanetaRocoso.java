@@ -10,21 +10,22 @@ package com.mycompany.practicaevaluada_1;
  */
 public class PlanetaRocoso extends Planeta {
 
-    private boolean tieneCortezaSolida; // Primera característica para el planeta rocoso 
+    private boolean hasSolidCrust; // Primera característica para el planeta rocoso 
     private String tipo = "Rocoso";
 
-    public PlanetaRocoso(String nombre, double masa, double velocidadOrbital,
-            double radio, double distanciaAlSol, int numeroDeLunas,
-            double tamanio, boolean tieneCortezaSolida) {
 
-        super(nombre, masa, velocidadOrbital, true, 0, radio, null,
-                distanciaAlSol, numeroDeLunas, tamanio);
-        this.tieneCortezaSolida = tieneCortezaSolida;
+    public PlanetaRocoso(String name, double mass, double orbitalvelocity, 
+            boolean boundOrbit, double rotationPerDay, double objectRadius, OrbitType orbit, 
+            double distanceToSun, int numberOfMoons, double size,boolean hasSolidCrust) {
+        super(name, mass, orbitalvelocity, boundOrbit, rotationPerDay, 
+                objectRadius, orbit, distanceToSun, numberOfMoons, size);
+        this.hasSolidCrust = hasSolidCrust;
     }
+    
 
     @Override
     public String toString() {
         return super.toString() + "\nTipo de Planeta: " + tipo
-                + "\nPosee corteza sólida: " + (tieneCortezaSolida ? "Sí" : "No");
+                + "\nPosee corteza sólida: " + (hasSolidCrust ? "Sí" : "No");
     }
 }
