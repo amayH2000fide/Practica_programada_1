@@ -4,7 +4,7 @@ package com.mycompany.practicaevaluada_1;
  *
  * @author zid
  */
-public class PlanetaGaseoso extends Planeta {
+public abstract class PlanetaGaseoso extends Planeta {
 
     private boolean tieneAnillos;
     private String composicionAtmosferica;
