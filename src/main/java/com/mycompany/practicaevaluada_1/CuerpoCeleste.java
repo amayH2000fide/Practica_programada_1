@@ -14,7 +14,7 @@ public abstract class CuerpoCeleste {
     private double mass;  //kg
     private double orbitalvelocity; // m/s 
     private boolean boundOrbit; //si orbita un objeto o esta libre
-    private double rotationPerDay;
+    private double rotationPerDay; //rotacines comparadas a un dia de la tierra.
     private double objectRadius; //radio del objeto.
     private OrbitType orbit; 
 
@@ -123,7 +123,7 @@ public abstract class CuerpoCeleste {
                 + "\nMasa: " + getMass() + " kg"
                 + "\nVelocidad orbital: " + getOrbitalvelocity() + " m/s"
                 + "\nÓrbita ligada: " + (isBoundOrbit() ? "Sí" : "No")
-                + "\nRotación por día: " + getRotationPerDay() + " h"
+                + "\nRotación por día: " + getRotationPerDay() + " /24h"
                 + "\nRadio del objeto: " + getObjectRadius() + " m"
                 + "\nTipo de órbita: " + getOrbit();
     }
