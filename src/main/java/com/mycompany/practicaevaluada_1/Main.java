@@ -274,6 +274,6 @@ public class Main {
     
     
     public void HelloWorld(){
-        
+        JOptionPane.showMessageDialog(null, "buenos dias");
     }
 }
