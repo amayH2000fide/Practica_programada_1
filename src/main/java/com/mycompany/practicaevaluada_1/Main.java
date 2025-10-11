@@ -274,6 +274,7 @@ public class Main {
     
     
     public void HelloWorld(){
+        JOptionPane.showMessageDialog(null, "buenos dias");
         JOptionPane.showMessageDialog(null, "Ingrese un valor correcto!!");
     }
 }
